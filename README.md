@@ -1325,7 +1325,7 @@ Include <tt>true</tt> as the parameter to get a human readable version:
 Diffs API Documentation: http://developer.factual.com/api-docs/#Diffs
 
 #Multi Queries
-Our 'Multi' feature allows you to make up to three queries via a single http request.  Multi can combine queries of different types (for example, a geopulse and reverse geocoder request), but they all must be GET requests.  See the [Multi API documentation](http://developer.factual.com/display/docs/Core+API+-+Multi) for details.
+Our 'Multi' feature allows you to make up to three queries via a single http request.  Multi can combine queries of different types, but they all must be GET requests.  See the [Multi API documentation](http://developer.factual.com/display/docs/Core+API+-+Multi) for details.
 
 ## A Multi Example
 Create your query objects as usual, and add them to the query queue using <tt>multiQueue()</tt>:
