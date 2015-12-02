@@ -276,11 +276,6 @@ class Factual {
 		return $res;
 	}
 
-	//Geopulse is deprecated
-	protected function urlForGeopulse($query) {
-		return $this->factHome . "geopulse/context?" . $query->toUrlQuery();
-	}
-
 	protected function urlForGeocode($tableName, $query) {
 		return $this->factHome . $tableName . "/geocode?" . $query->toUrlQuery();
 	}
@@ -407,16 +402,6 @@ class Factual {
 	public function multiFetch() {
 		$res = $this->urlForMulti();
 		return new MultiResponse($this->request($res['url']), $res['response']);
-	}
-
-	/**
-	 * Runs a geopulse <tt>query</tt> *DEPRECATED*
-	 * @param query The FactualQuery object
-	 * @return object The ReadResponse object
-	 * @deprecated v1.5.8
-	 */
-	public function geopulse($query) {
-		return new ReadResponse($this->request($this->urlForGeopulse($query)));
 	}
 
 /**
