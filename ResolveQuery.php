@@ -27,6 +27,21 @@ class ResolveQuery extends FactualQuery {
   }
 
 	/**
+	* Adds array of name/key pairs to query for eventual resolution
+ 	* @param array keyValueArray A key value array
+	* $return object This query object or NULL on failure
+ 	*/
+  public function addArray($keyValueArray) {
+  	if (!is_array($keyValueArray)){
+  		throw new exception (__METHOD__." Parameter must be array: key = attribute name, value = attribute value");
+  	}
+  	foreach($keyValueArray as $key => $value) {
+ 		$this->values[$key]=$value;	
+ 	}
+    return $this;
+ }
+
+	/**
 	 * Adds factual entity to query for resolution.
 	 * Use for refreshing chached entityies that do not redirect
 	 * @param array entity Factual entity with Factual attribute names as key
