@@ -528,9 +528,12 @@ class Factual {
 				throw $factualE;
 			}
 		}
-		//check for deprecation, add to stdout
+		//check for deprecation, retry with new ID
 		if ($result['code'] == 301){
-			//file_put_contents('php://stderr', "Entity is deprecated");
+			$body = json_decode($result['body'], true);
+			if (isset($body['deprecated_id'], $body['current_id'])) {
+				return $this->request(str_replace($body['deprecated_id'], $body['current_id'], $urlStr), $requestMethod, $params, $curlOptions);
+			}
 		}
 		return $result;
 	}
